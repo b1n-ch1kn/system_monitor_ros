@@ -13,6 +13,6 @@ def generate_launch_description():
 
     return LaunchDescription([
         launch_ros.actions.Node(
-            package='system_monitor_ros', node_executable='system_monitor_node', output='screen',
+            package='system_monitor_ros', executable='system_monitor_node', output='screen',
             parameters=[parameters_file_path + "/monitor_parameters.yaml"]),
     ])

@@ -13,7 +13,6 @@ find_package(rclcpp REQUIRED)
 get_default_rmw_implementation(rmw_implementation)
 find_package("${rmw_implementation}" REQUIRED)
 
-find_package(px4_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 
 find_package(PythonInterp REQUIRED)
@@ -40,11 +39,11 @@ target_link_libraries(system_monitor_node system_monitor)
 #################################
 
 # Add node dependencies
-ament_target_dependencies(system_monitor_node px4_msgs rclcpp std_msgs)
+ament_target_dependencies(system_monitor_node rclcpp std_msgs)
 
 # Export information to downstream packages
 ament_export_dependencies(rclcpp rosidl_default_runtime system_monitor)
-ament_export_include_directories(include ${px4_msgs_INCLUDE_DIRS})
+ament_export_include_directories(include)
 ament_export_libraries()
 
 ############
